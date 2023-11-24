@@ -8,18 +8,18 @@ const userSignUpControllerObj = {
         let { name, role, username, password } = req.body;
         let userPool = new AmazonCognitoIdentity.CognitoUserPool(cognitoConfigCall)
 
-        let attributeList = []
-        attributeList.push(new AmazonCognitoIdentity.CognitoUserAttribute({ Name: "name", Value: name }))
-        attributeList.push(new AmazonCognitoIdentity.CognitoUserAttribute({ Name: "custom:role", Value: role }))
+        let attrList = []
+        attrList.push(new AmazonCognitoIdentity.CognitoUserAttribute({ Name: "name", Value: name }))
+        attrList.push(new AmazonCognitoIdentity.CognitoUserAttribute({ Name: "custom:role", Value: role }))
 
         let regex = /^(\+\d{3})?\d{9}$/;
         if (username.match(regex)) {
-            attributeList.push(new AmazonCognitoIdentity.CognitoUserAttribute({ Name: "phone_number", Value: username }));
+            attrList.push(new AmazonCognitoIdentity.CognitoUserAttribute({ Name: "phone_number", Value: username }));
         } else {
-            attributeList.push(new AmazonCognitoIdentity.CognitoUserAttribute({ Name: "email", Value: username }));
+            attrList.push(new AmazonCognitoIdentity.CognitoUserAttribute({ Name: "email", Value: username }));
         }
 
-        userPool.signUp(username, password, attributeList, null, (err, result) => {
+        userPool.signUp(username, password, attrList, null, (err, result) => {
             if (err) {
                 return res.status(500).json({ msg: err.message });
             }
