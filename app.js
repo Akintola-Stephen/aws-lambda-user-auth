@@ -1,5 +1,5 @@
 const express = require("express")
-
+// const serverless = require("serverless-http");
 const app = express()
 const userSignUpRouter = require("./router/signUp.router")
 const userSignInRouter = require("./router/signIn.router")
@@ -18,3 +18,6 @@ app.get('/', (req, res)=>{
 
 
 app.listen(PORT)
+
+
+// module.exports.handler = serverless(app);

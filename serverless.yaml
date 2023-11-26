@@ -1,0 +1,26 @@
+service: cognito-auth-nodejs
+provider:
+    name: aws
+    runtime: nodejs14.x
+    region: us-east-1
+    environment:
+        USERPOOL_ID: "<USERPOOL_ID>"
+        CLIENT_ID: "<CLIENT_ID>"
+        REGION: "<REGION>"
+
+functions:
+    auth-services:
+        handler: handler.handler
+        events:
+        - http:
+            path: /
+            method: get
+        - http:
+            path: /v1/sign-up
+            method: post
+        - http:
+            path: /v1/sign-in
+            method: post
+        
+plugins:
+    - serverless-offline
