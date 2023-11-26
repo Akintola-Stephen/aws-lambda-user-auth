@@ -4,7 +4,7 @@
 AWS Lambda User Sign-Up / Sign-In Using AWS DynamoDB and AWS Cognito Services
 
 ```
-BANKING OPERATION - AWS Lambda function that allows users to register by providing their details and subsequently log in.
+AWS LAMBDA  - AWS Lambda function that allows users to register by providing their details and subsequently log in.
 ```
 
 ## Code structure explanation
