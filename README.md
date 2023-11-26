@@ -23,8 +23,7 @@ This project work contains the follwing folders.
 
 | Routes               | HTTP Methods | Description                    |
 | :------------------- | :----------- | :----------------------------- |
-| localhost:5000/v1/sign-up   | POST         | User registration route        |
-
+| localhost:5000/v1/sign-up   | POST         | User registration route |
 | localhost:5000/v1/sign-in   | POST          | user login endpoint   |
 
 
